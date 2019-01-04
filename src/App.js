@@ -38,11 +38,23 @@ class App extends Component {
       }
     ]
   };
+
+  ItemCompleted = todo => {
+    const todos = this.state.todos;
+    const todoItemIndex = todos.indexOf(todo);
+    const completedItem = todos[todoItemIndex];
+    completedItem.completed = completedItem.completed ? false : true;
+
+    this.setState({
+      todos
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <AppHeader />
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} onItemCompleted={this.ItemCompleted} />
       </div>
     );
   }

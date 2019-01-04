@@ -8,7 +8,12 @@ class Todos extends Component {
         <ul className="list-unstyled">
           {todos.map(todo => (
             <li className={this.getItemClasses(todo.completed)} key={todo.id}>
-              <input className="mr-3" type="checkbox" name="" id="" />
+              <input
+                className="mr-3"
+                type="checkbox"
+                onClick={() => this.props.onItemCompleted(todo)}
+                checked={todo.completed}
+              />
               {todo.title}
             </li>
           ))}
