@@ -39,7 +39,7 @@ class App extends Component {
     ]
   };
 
-  ItemCompleted = todo => {
+  hundleItemCompleted = todo => {
     const todos = this.state.todos;
     const todoItemIndex = todos.indexOf(todo);
     const completedItem = todos[todoItemIndex];
@@ -50,11 +50,21 @@ class App extends Component {
     });
   };
 
+  hundleItemDeleted = todo => {
+    const todos = this.state.todos.filter(todoItem => todoItem !== todo);
+
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="App">
         <AppHeader />
-        <Todos todos={this.state.todos} onItemCompleted={this.ItemCompleted} />
+        <Todos
+          todos={this.state.todos}
+          onItemCompleted={this.hundleItemCompleted}
+          onItemDeleted={this.hundleItemDeleted}
+        />
       </div>
     );
   }
