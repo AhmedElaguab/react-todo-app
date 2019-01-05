@@ -8,7 +8,7 @@ class App extends Component {
       {
         userId: 1,
         id: 1,
-        title: "delectus aut autem",
+        title: "\\delectus aut autem",
         completed: false
       },
       {
@@ -45,9 +45,7 @@ class App extends Component {
     const completedItem = todos[todoItemIndex];
     completedItem.completed = completedItem.completed ? false : true;
 
-    this.setState({
-      todos
-    });
+    this.setState({ todos });
   };
 
   hundleItemDeleted = todo => {
