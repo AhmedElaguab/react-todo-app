@@ -9,11 +9,19 @@ class AppHeader extends Component {
             Todo App |{" "}
             <small>
               Built with{" "}
-              <a href="https://reactjs.org/" target="_blank">
+              <a
+                href="https://reactjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 React
               </a>{" "}
               and{" "}
-              <a href="https://getbootstrap.com/" target="_blank">
+              <a
+                href="https://getbootstrap.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Bootstrap.
               </a>
             </small>
