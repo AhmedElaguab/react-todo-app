@@ -73,6 +73,9 @@ class App extends Component {
     const todos = this.state.todos;
     todos.push(AddedItem);
 
+    // Clear addItem Input
+    e.target.title.value = "";
+
     this.setState({ todos });
   };
 
