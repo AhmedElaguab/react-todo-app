@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppHeader from "./components/AppHeader";
 import Todos from "./components/Todos";
+import AddItem from "./components/AddItem";
 
 class App extends Component {
   state = {
@@ -60,6 +61,21 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  hundleItemAdded = e => {
+    e.preventDefault();
+    const AddedItem = {};
+    AddedItem.userId = 1;
+    AddedItem.id = this.state.todos.length;
+    AddedItem.id++;
+    AddedItem.title = e.target.title.value;
+    AddedItem.completed = false;
+
+    const todos = this.state.todos;
+    todos.push(AddedItem);
+
+    this.setState({ todos });
+  };
+
   render() {
     return (
       <div className="App">
@@ -69,6 +85,7 @@ class App extends Component {
           onItemCompleted={this.hundleItemCompleted}
           onItemDeleted={this.hundleItemDeleted}
         />
+        <AddItem onItemAdded={this.hundleItemAdded} />
       </div>
     );
   }
