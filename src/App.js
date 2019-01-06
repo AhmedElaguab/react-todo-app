@@ -49,7 +49,13 @@ class App extends Component {
   };
 
   hundleItemDeleted = todo => {
-    const todos = this.state.todos.filter(todoItem => todoItem !== todo);
+    let id = 1;
+    let todos = this.state.todos
+      .filter(todoItem => todoItem !== todo)
+      .map(todoItem => {
+        todoItem.id = id++;
+        return todoItem;
+      });
 
     this.setState({ todos });
   };
